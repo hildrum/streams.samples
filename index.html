@@ -37,7 +37,15 @@
 <h2>
 <a name="hdfs2helpers" class="anchor" href="#hdfs2helpers"><span class="octicon octicon-link"></span></a>HDFS2Helpers</h2>
 
-<p>This set of composite operators and the samples show how to extend the capabilities of the HDFS2 operators included in Streams 3.2.</p>
+<p>This set of composite operators and the samples show how to extend the capabilities of the HDFS2 operators included in Streams 3.2.  
+<ul>
+<li>The <a href="hdfs2.helpers/doc/spldoc/html/index.html">SPLDoc</a> describing the reusable composites.
+<li> <a href="hdfs2.helpers.samples/ReadFormatWrite/doc/spldoc/html/index.html">ReadFormatWrite</a>: An example showing a basic use of the composites.
+<li> <a href="hdfs2.helpers.samples/HDFSJSONFormat/doc/spldoc/html/index.html">HDFSJSONFormat</a>: An example using the composites  to read and write JSONData  to HDFS.  For this example, we pass the composite an operator to do the formatting of tuples to strings.  
+<li> <a href="hdfs2.helpers.samples/ScanReadFormatWrite/doc/spldoc/html/index.html">ScanReadFormatWrite</a>: In this example, we use the default formatter, but we pass a specialized HDFS2FileSink composite so we can use the closeOnPunct parameter.  
+</ul>
+</p>
+
       </section>
     </div>
     <footer>
