@@ -11,15 +11,20 @@ use com.ibm.streams.bigdata.hdfs2.helpers::HDFSWriteFormat ;
  * directory to testDir (by default hdfsHelpersTest_basic).
  * 
  * After running, you can verify the readTest.out file locally.
+ * <code>
  * "Number is 0",1
  * "Number is 2",3
  *  ...
+ * </code>
  * 
  * 
  * Check the writetest.txt file on hadoop.  it's lines are:
- * {aString="Number is 0",n=0}
- * {aString="Number is 1",n=1}
+ * <code>
+ * \\\{aString="Number is 0",n=0\\\}
+ * \\\{aString="Number is 1",n=1\\\}
  * ...
+ * </code>
+ *
  */
 composite ReadFormatWrite
 {

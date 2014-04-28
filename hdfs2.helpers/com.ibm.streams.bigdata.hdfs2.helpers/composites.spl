@@ -12,8 +12,8 @@ namespace com.ibm.streams.bigdata.hdfs2.helpers ;
  * to do the conversion from tuple to rstring.
  *  
  * @input inStream Stream to be written to HDFS
- * @param toStringOp (optional) operator to be used for converting from tuple to string
- * @param sinkOp (optional) operator to be used to write to HDFS
+ * @param formatter (optional) operator to be used for converting from tuple to string
+ * @param writer (optional) operator to be used to write to HDFS
  * @param file File name to be passed on to HDFSFileSink
  * @param timeFormat passed to the file sink; used when the filename contains %TIME
  */
@@ -70,7 +70,7 @@ public composite HDFSWriteFormat(input inStream )
  * @output myStream the output stream of tuples
  * @param file The file on hdfs to be read.
  * @param initDelay (optional) Specifies the time to wait before reading the file.
- * @param user (optional) The users to be used when connecting to HDFS.
+ * @param hdfsUser (optional) The users to be used when connecting to HDFS.
  * @param decoder (optional) The operator to use to convert a
  * string to a tuple.  By default, it uses the cast
  * function.
@@ -122,11 +122,11 @@ public composite HDFSReadFormat(output myStream )
 /** Read from HDFS with filenames supplied on the command line and covert strings to tuples.
  * Treat each tuple on the input stream as a file name, open the file, and
  * convert each line to a tuple.  
- * @input filesnames a stream of rstrings representing files in HDFS
+ * @input filenames a stream of rstrings representing files in HDFS
  * @output myStream a stream of tuples.  Each tuple corresponds to a line read from HDFS.
  * @param streamType type of the output stream. 
  * @param initDelay optional initial delay before reading files.
- * @param user optional parameter specifying user to connect to HDFS
+ * @param hdfsUser optional parameter specifying user to connect to HDFS
  * @param reader optional parameter to override default operator to use for reading from HDFS.
  * @param decoder optional parameter to overrride default operator to use for converting from HDFS.  It must accept a type parameter.
  */
