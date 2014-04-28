@@ -2,8 +2,8 @@
 /* All Rights Reserved                                	                 */
 
 namespace sample;
-use com.ibm.ssb.parsers.json::JSONToTuple;
-use com.ibm.ssb.parsers.json::TupleToJSON;
+use com.ibm.streamsx.json::JSONToTuple;
+use com.ibm.streamsx.json::TupleToJSON;
 use com.ibm.streams.bigdata.hdfs2.helpers::HDFSReadFormat;
 use com.ibm.streams.bigdata.hdfs2.helpers::HDFSWriteFormat;
 
