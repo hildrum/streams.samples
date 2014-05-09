@@ -3,23 +3,26 @@
 
 namespace sample ;
 
-use com.ibm.streams.bigdata.hdfs2.helpers::HDFSReadFormat ;
-use com.ibm.streams.bigdata.hdfs2.helpers::HDFSWriteFormat ;
+use com.ibm.streamsx.hdfs2.helpers::HDFSReadFormat ;
+use com.ibm.streamsx.hdfs2.helpers::HDFSFormatWrite ;
 
 /** Demonstration of the helpers for basic read and write
  * To use this sample, copy the readtest.txt file from the data
  * directory to testDir (by default hdfsHelpersTest_basic).
  * 
  * After running, you can verify the readTest.out file locally.
+ * <code>
  * "Number is 0",1
  * "Number is 2",3
  *  ...
+ * </clode>
  * 
- * 
- * Check the writetest.txt file on hadoop.  it's lines are:
+ * Check the writetest.txt file on hadoop.  Its lines are:
+ * <code>
  * {aString="Number is 0",n=0}
  * {aString="Number is 1",n=1}
  * ...
+ * </code>
  */
 composite ReadFormatWrite
 {
@@ -41,7 +44,7 @@ composite ReadFormatWrite
 		// Cast the tuples to strings and write them to HDFS.
 		// The first tuple looks like this:
 		// {aString="Number is 0",n=0}
-		() as sink = HDFSWriteFormat(testStream)
+		() as sink = HDFSFormatWrite(testStream)
 		{
 			param
 				file : $testDir + "testwrite.txt" ;

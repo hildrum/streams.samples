@@ -4,8 +4,8 @@
 namespace sample;
 use com.ibm.streamsx.json::JSONToTuple;
 use com.ibm.streamsx.json::TupleToJSON;
-use com.ibm.streams.bigdata.hdfs2.helpers::HDFSReadFormat;
-use com.ibm.streams.bigdata.hdfs2.helpers::HDFSWriteFormat;
+use com.ibm.streamsx.hdfs2.helpers::HDFSReadFormat;
+use com.ibm.streamsx.hdfs2.helpers::HDFSFormatWrite;
 
 /** Wrapper around JSONToTuple so that it accepts a type argument.
  * The JSONToTuple operator does not need a outType argument,
@@ -16,7 +16,6 @@ use com.ibm.streams.bigdata.hdfs2.helpers::HDFSWriteFormat;
  * @output outStream Stream of tuples corresponding to JSON input stream.
  * @param outType type of the output.
  */
- 
 composite JSONToTupleWrapper (input inStream;
 	output outStream) {
 	param 
@@ -66,9 +65,9 @@ stream<rstring aString, int32 n> testStream = Beacon() {
 		n = (int32)IterationCount();
 }
 
-// Write those tuples to HDFS.  After the app has run,
+// Write those tuples to HDFS. After the application has run,
 // verify the tuples are here.
-() as sink = HDFSWriteFormat(testStream) {
+() as sink = HDFSFormatWrite(testStream) {
 	param
 	file: $hadoopBaseDir+"jsonWriteTest.txt";
 	formatter: TupleToJSON;

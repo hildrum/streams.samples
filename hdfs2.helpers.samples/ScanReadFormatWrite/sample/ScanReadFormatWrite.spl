@@ -5,11 +5,11 @@ namespace sample ;
 
 use com.ibm.streams.bigdata.hdfs2::HDFS2FileSink ;
 use com.ibm.streams.bigdata.hdfs2::HDFS2DirectoryScan ;
-use com.ibm.streams.bigdata.hdfs2.helpers::HDFSReadFormatInputStream ;
-use com.ibm.streams.bigdata.hdfs2.helpers::HDFSWriteFormat ;
+use com.ibm.streamsx.hdfs2.helpers::HDFSReadFormatInputStream ;
+use com.ibm.streamsx.hdfs2.helpers::HDFSFormatWrite ;
 
 /** Demonstrates the use of the HFDSHelpers, showing how options like closeOnPunct can be supported.
- * To use this composite, place data/testread1.txt and data/testread2.txt
+ * To use this composite, place `data/testread1.txt` and `data/testread2.txt`
  * in the scanDir (defaults to hdfsHelpersTest_scan/in).
  * 
  * The HDFSDirectoryScan reads the directory, and passes the filenames off to 
@@ -22,12 +22,12 @@ use com.ibm.streams.bigdata.hdfs2.helpers::HDFSWriteFormat ;
  * a wrapper around HDFS2FileSink with the closeOnPunct set to true.  
  * 
  * When run, three output files appear in the hdfs output directory:
- * basic.txt, which contains the tuples from both files.  This is written by the first
+ * `basic.txt`, which contains the tuples from both files.  This is written by the first
  *            HDFSWriteFormat invocation.
  * The second HDFSWriteFormat invocation writes two files:
- * punct0.txt, which contains tuples from only the first file (since a punctuation is sent between
+ * `punct0.txt`, which contains tuples from only the first file (since a punctuation is sent between
  *             the first and second file, and a punctuation close the file and starts a new one)
- * punct1.txt, which contains tuples from only the second file
+ * `punct1.txt`, which contains tuples from only the second file
  * 
  * Locally, in the data directory testRead.cvs is produced. 
  */
@@ -62,7 +62,7 @@ composite ScanReadFormatWrite
 		}
 
 		// Write the result the basic way.
-		() as basicSink = HDFSWriteFormat(tupleString)
+		() as basicSink = HDFSFormatWrite(tupleString)
 		{
 			param
 				file : $outDir + "/basic.txt" ;
@@ -70,7 +70,7 @@ composite ScanReadFormatWrite
 
 		// This time, close on punctuation.  To do this, we pass
 		// in a composite as the writer.  The composite is defined below.
-		() as closeOnPunctSink = HDFSWriteFormat(tupleString)
+		() as closeOnPunctSink = HDFSFormatWrite(tupleString)
 		{
 			param
 				file : $outDir + "/punct%FILENUM.txt" ;
