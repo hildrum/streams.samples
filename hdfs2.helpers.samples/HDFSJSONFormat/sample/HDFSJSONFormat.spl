@@ -27,7 +27,7 @@ composite JSONToTupleWrapper (input inStream;
 	
 /** Composite demonstrating the use of the JSON with the formatters.
  * To setup for running this composite
- * - Get the JSONHelpers toolkit from DeveloperWorks
+ * - Get the streamsx.json toolkit from IBMStreams
  * - Copy data/inputForJSONRead.txt to hadoopHelperSamples in HDFS.  
  * 
  * This example shows how to use your own formatters to convert tuples

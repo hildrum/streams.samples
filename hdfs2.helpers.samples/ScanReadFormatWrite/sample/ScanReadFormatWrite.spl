@@ -34,13 +34,14 @@ use com.ibm.streamsx.hdfs2.helpers::HDFSFormatWrite ;
 composite ScanReadFormatWrite
 {
 	param
+		expression<rstring> $path : getSubmissionTimeValue("path","");
 		expression<rstring> $scanDir : "hdfsHelpersTest_scan/in" ;
 		expression<rstring> $outDir : "hdfsHelpersTest_scan/out" ;
 	graph
 		stream<rstring filename> Filenames = HDFS2DirectoryScan()
 		{
 			param
-				directory : $scanDir ;
+				directory : $path+$scanDir ;
 				strictMode : true ;
 		}
 	
@@ -65,7 +66,7 @@ composite ScanReadFormatWrite
 		() as basicSink = HDFSFormatWrite(tupleString)
 		{
 			param
-				file : $outDir + "/basic.txt" ;
+				file : $path+$outDir + "/basic.txt" ;
 		}
 
 		// This time, close on punctuation.  To do this, we pass
@@ -73,7 +74,7 @@ composite ScanReadFormatWrite
 		() as closeOnPunctSink = HDFSFormatWrite(tupleString)
 		{
 			param
-				file : $outDir + "/punct%FILENUM.txt" ;
+				file : $path+$outDir + "/punct%FILENUM.txt" ;
 				writer : HDFSFileSinkCloseOnPunct ;
 		}
 
