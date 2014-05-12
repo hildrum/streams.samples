@@ -1,5 +1,5 @@
 /**
- * This file shows intermediate versions of HDFSWriteFormat as it's
+ * This namespace hosts intermediate versions of HDFSWriteFormat as it's
  * built up to the final form.  The blog post refers to these versions.
  * * **HDFSFormatWrite_V1** encapsulate the scan-read-write example,
  * hard-coding the formatter to be the txt format.
