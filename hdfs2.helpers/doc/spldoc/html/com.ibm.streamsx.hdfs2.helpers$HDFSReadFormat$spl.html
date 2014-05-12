@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="HDFSReadFormat.spl"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="spldoc_compilationunit__"/>
+<link rel="stylesheet" type="text/css" href="../html/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../html/spldoc.css"/>
+<title>HDFSReadFormat.spl</title>
+</head>
+<body id="spldoc_compilationunit__">
+
+
+<h1 class="title topictitle1">HDFSReadFormat.spl</h1>
+
+<div class="body refbody">
+<div class="section">
+<p class="p">
+<a class="xref" href="toolkit.html">
+streamsx.hdfs2.helpers
+</a>
+-&gt; <a class="xref" href="com.ibm.streamsx.hdfs2.helpers$.html">com.ibm.streamsx.hdfs2.helpers</a>-&gt; HDFSReadFormat.spl</p>
+
+</div>
+
+<div class="section">
+
+<p class="p">This file contains the HDFSReadFormat composites.  Because  HDFSFileSource can either be with and input port or without an input port, we have two different composites to wrap it, one without an input port (HDFSReadFormat) and one with an input port HDFSReadInputPort 
+</p>
+
+</div>
+
+<div class="section"><h2 class="title sectiontitle splhead-1">Content</h2>
+  
+    <dl class="dl">
+    <dt class="dt dlterm"/>
+<dd class="dd"/>
+
+    
+      <dt class="dt dlterm splhead-2">Composites</dt>
+
+      <dd class="dd"><dl class="dl">
+  
+     <dt class="dt dlterm"><a class="xref" href="#spldoc_compilationunit____composite_operator__HDFSReadFormat">public composite HDFSReadFormat(output myStream)</a></dt>
+
+     <dd class="dd">Read a line from HDFS and convert it to a tuple.</dd>
+
+  
+  
+     <dt class="dt dlterm"><a class="xref" href="#spldoc_compilationunit____composite_operator__HDFSReadFormatInputStream">public composite HDFSReadFormatInputStream(output myStream; input filenames)</a></dt>
+
+     <dd class="dd">Read from HDFS with filenames supplied on the command line and covert strings to tuples.</dd>
+
+  
+     </dl>
+</dd>
+
+    
+     </dl>
+
+</div>
+
+<div class="section"><h2 class="title sectiontitle splhead-1">Composites</h2>
+  
+</div>
+
+<div class="section" id="spldoc_compilationunit____composite_operator__HDFSReadFormat"><h2 class="title sectiontitle splpart">public composite HDFSReadFormat(output myStream)</h2>
+  
+</div>
+
+<div class="section">
+
+<p class="p">Read a line from HDFS and convert it to a tuple. The operator reads a line from HDFS and converts  it to a tuple.  By default, it use's SPL's cast function to convert from a tuple to a string. 
+</p>
+
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Parameters</h2>
+
+<ul class="sl simple">
+<li class="sli"><strong class="ph b">file</strong>: The file on hdfs to be read.
+</li>
+
+<li class="sli"><strong class="ph b">streamType</strong>: 
+</li>
+
+<li class="sli"><strong class="ph b">initDelay</strong>: (optional) Specifies the time to wait before reading the file.
+</li>
+
+<li class="sli"><strong class="ph b">hdfsUser</strong>: (optional) The users to be used when connecting to HDFS.
+</li>
+
+<li class="sli"><strong class="ph b">decoder</strong>: (optional) The operator to use to convert a string to a tuple.  By default, it uses the cast function.
+</li>
+
+<li class="sli"><strong class="ph b">reader</strong>: (optional) The operator to use to read HDFS lines.
+</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Output Ports</h2>
+
+<ul class="sl simple">
+<li class="sli"><strong class="ph b">myStream</strong>: the output stream of tuples
+</li>
+
+</ul>
+
+</div>
+
+<div class="section" id="spldoc_compilationunit____composite_operator__HDFSReadFormatInputStream"><h2 class="title sectiontitle splpart">public composite HDFSReadFormatInputStream(output myStream; input filenames)</h2>
+  
+</div>
+
+<div class="section">
+
+<p class="p">Read from HDFS with filenames supplied on the command line and covert strings to tuples. Treat each tuple on the input stream as a file name, open the file, and convert each line to a tuple.   
+</p>
+
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Parameters</h2>
+
+<ul class="sl simple">
+<li class="sli"><strong class="ph b">decoder</strong>: optional parameter to overrride default operator to use for converting from HDFS.  It must accept a type parameter.
+</li>
+
+<li class="sli"><strong class="ph b">reader</strong>: optional parameter to override default operator to use for reading from HDFS.
+</li>
+
+<li class="sli"><strong class="ph b">initDelay</strong>: optional initial delay before reading files.
+</li>
+
+<li class="sli"><strong class="ph b">streamType</strong>: type of the output stream. 
+</li>
+
+<li class="sli"><strong class="ph b">hdfsUser</strong>: optional parameter specifying user to connect to HDFS
+</li>
+
+</ul>
+
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Input Ports</h2>
+
+<ul class="sl simple">
+<li class="sli"><strong class="ph b">filenames</strong>: a stream of rstrings representing files in HDFS
+</li>
+
+</ul>
+
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Output Ports</h2>
+
+<ul class="sl simple">
+<li class="sli"><strong class="ph b">myStream</strong>: a stream of tuples.  Each tuple corresponds to a line read from HDFS.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+</body>
+</html>

@@ -69,7 +69,7 @@ ScanReadFormatWrite
 
 <div class="section">
 
-<p class="p">Demonstrates the use of the HFDSHelpers, showing how options like closeOnPunct can be supported. To use this composite, place data/testread1.txt and data/testread2.txt in the scanDir (defaults to hdfsHelpersTest_scan/in). 
+<p class="p">Demonstrates the use of the HFDSHelpers, showing how options like closeOnPunct can be supported. To use this composite, place <tt class="ph tt">data/testread1.txt</tt> and <tt class="ph tt">data/testread2.txt</tt> in the scanDir (defaults to hdfsHelpersTest_scan/in). 
 </p>
 
 <p class="p">The HDFSDirectoryScan reads the directory, and passes the filenames off to  HDFSReadFormatInputStream.  The results of that read are written locally (testRead.csv), and also passed to two instantiations of HDFSWriteFormat.  The first instantiation works the same as in the ReadFormatWrite example. 
@@ -78,7 +78,7 @@ ScanReadFormatWrite
 <p class="p">In the second, we want to have the HDFS2FileSink close the file on punctation, so we use the HDFSFormatWrite composite with writer parameter.  The operator we pass in as the writer is a  a wrapper around HDFS2FileSink with the closeOnPunct set to true.   
 </p>
 
-<div class="p">When run, three output files appear in the hdfs output directory: basic.txt, which contains the tuples from both files.  This is written by the first 
+<div class="p">When run, three output files appear in the hdfs output directory: <tt class="ph tt">basic.txt</tt>, which contains the tuples from both files.  This is written by the first 
 <pre class="pre codeblock">
       HDFSWriteFormat invocation.
 </pre>
@@ -86,7 +86,7 @@ ScanReadFormatWrite
 
 </div>
 
-<div class="p">The second HDFSWriteFormat invocation writes two files: punct0.txt, which contains tuples from only the first file (since a punctuation is sent between 
+<div class="p">The second HDFSWriteFormat invocation writes two files: <tt class="ph tt">punct0.txt</tt>, which contains tuples from only the first file (since a punctuation is sent between 
 <pre class="pre codeblock">
        the first and second file, and a punctuation close the file and starts a new one)
 </pre>
@@ -94,7 +94,7 @@ ScanReadFormatWrite
 
 </div>
 
-<p class="p">punct1.txt, which contains tuples from only the second file 
+<p class="p"><tt class="ph tt">punct1.txt</tt>, which contains tuples from only the second file 
 </p>
 
 <p class="p">Locally, in the data directory testRead.cvs is produced.  
@@ -105,6 +105,9 @@ ScanReadFormatWrite
 <div class="section"><h2 class="title sectiontitle">Parameters</h2>
 
 <ul class="sl simple">
+<li class="sli"><strong class="ph b">path</strong>: 
+</li>
+
 <li class="sli"><strong class="ph b">scanDir</strong>: 
 </li>
 

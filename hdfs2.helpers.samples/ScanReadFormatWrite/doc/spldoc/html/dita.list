@@ -1,4 +1,4 @@
-#Mon Apr 28 10:54:14 EDT 2014
+#Mon May 12 11:04:22 EDT 2014
 copytosourcelist=
 hreftargetslist=sample$ScanReadFormatWrite$spl.xml,sample$.xml,toolkit.xml
 fullditatopicfile=fullditatopic.list
@@ -33,17 +33,17 @@ subjectschemefile=subjectscheme.list
 keyreflist=
 subjectschemelist=
 keyfile=key.list
-codereffile=coderef.list
 keylist=
+codereffile=coderef.list
 codereflist=
 user.input.file.listfile=usr.input.file.list
-user.input.dir=/homes/hny2/hildrum/github/hildrum/streams.samples/hdfs2.helpers.samples/ScanReadFormatWrite/doc/spldoc/dita
 uplevels=
-tempdirToinputmapdir.relative.value=
+user.input.dir=/homes/hny2/hildrum/github/hildrum/streams.samples/hdfs2.helpers.samples/ScanReadFormatWrite/doc/spldoc/dita
 conrefpushfile=conrefpush.list
+tempdirToinputmapdir.relative.value=
 flagimagefile=flagimage.list
-skipchunkfile=skipchunk.list
 conrefpushlist=
+skipchunkfile=skipchunk.list
 flagimagelist=
 skipchunklist=
 relflagimagefile=relflagimage.list
